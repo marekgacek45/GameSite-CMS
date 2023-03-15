@@ -15,6 +15,9 @@
 
 <nav class="navbar navbar-dark bg-primary">
         <div class="container">
+        <a href="article-create.php"><button>stwórz nowy artykuł</button></a>
+        </div>
 </nav>
-
+<a href="index.php">
 <h1>GameSITE CMS</h1>
+</a>

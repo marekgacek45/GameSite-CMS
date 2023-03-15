@@ -1,15 +1,14 @@
-<?php require('includes/init.php'); ?>
+<?php
+require('includes/init.php');
+require('includes/header.php');
+$conn = require('includes/database.php');
+?>
 
-<?php require('includes/header.php') ?>
-
-<?php $conn = require('includes/database.php'); ?>
-
-<?php $articles = Article::getAll($conn);
-
+<?php
+$articles = Article::getAll($conn);
 ?>
 
 <main class="container">
-
 
     <?php foreach ($articles as $article): ?>
         <div class="container">
@@ -19,15 +18,10 @@
             <p>
                 <?= htmlspecialchars($article['content']) ?>
             </p>
-            <a href="article.php?id=<?=$article['id']?>">czytaj</a>
+            <a href="article.php?id=<?= $article['id'] ?>">czytaj</a>
         </div>
     <?php endforeach ?>
 
 </main>
-
-
-
-
-
 
 <?php require('includes/footer.php') ?>
