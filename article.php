@@ -17,7 +17,7 @@ $article = Article::getByID($conn, $id);
         <?= $article->content ?>
     </p>
 
-    
+   <a href="article-edit.php?id=<?= $id ?>"><button>edit</button></a>
 
 </main>
 

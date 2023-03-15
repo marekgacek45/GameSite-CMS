@@ -69,12 +69,32 @@ class Article
             return false;
         }
 
+    }
+
+    public function edit($conn)
+    {
+
+        if ($this->validate()) {
+            $sql = "UPDATE article SET title =:title, content=:content
+    WHERE id = :id";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+            $stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+            $stmt->bindValue(':content', $this->content, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+                $this->id = $conn->lastInsertId();
+                return true;
+            }
+        } else {
+            return false;
+        }
 
 
 
     }
-
-
 }
 
 ?>
