@@ -2,27 +2,24 @@
 
 <?php require('includes/header.php') ?>
 
-
-<?php
-$conn = require('includes/database.php');
-?>
+<?php $conn = require('includes/database.php'); ?>
 
 <?php $articles = Article::getAll($conn);
 
-
 ?>
 
-<main>
+<main class="container">
 
 
     <?php foreach ($articles as $article): ?>
-        <div>
+        <div class="container">
             <h2>
-                <?= $article['title'] ?>
+                <?= htmlspecialchars($article['title']) ?>
             </h2>
             <p>
-            <?= $article['content'] ?>
+                <?= htmlspecialchars($article['content']) ?>
             </p>
+            <a href="article.php?id=<?=$article['id']?>">czytaj</a>
         </div>
     <?php endforeach ?>
 
