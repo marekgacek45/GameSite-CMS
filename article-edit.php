@@ -9,7 +9,6 @@ $article = Article::getByID($conn, $id);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-
     $article->title = $_POST['title'];
     $article->content = $_POST['content'];
 
@@ -17,15 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header('Location:index.php');
     }
 }
-
-
 ?>
-
 <main class="container">
 
 <h2>Edytuj artykuł</h2>
 <?php require("includes/form.php") ?>
-
 
 </main>
 

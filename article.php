@@ -17,8 +17,10 @@ $article = Article::getByID($conn, $id);
         <?= $article->content ?>
     </p>
 
-   <a href="article-edit.php?id=<?= $id ?>"><button>edit</button></a>
-
+    <div>
+        <a href="article-edit.php?id=<?= $id ?>"><button>edytuj</button></a>
+        <a href="article-delete.php?id=<?= $id ?>"><button>usuń</button></a>
+    </div>
 </main>
 
 <?php require('includes/footer.php') ?>
