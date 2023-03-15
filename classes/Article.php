@@ -5,6 +5,20 @@ class Article
     public $id;
     public $title;
     public $content;
+    public $errors = [];
+
+
+    protected function validate()
+    {
+        if ($this->title == '') {
+            array_push($this->errors, 'wprowadź tytuł');
+        }
+        if ($this->content == '') {
+            array_push($this->errors, 'wprowadź treść');
+        }
+
+        return empty($this->errors);
+    }
 
     public static function getAll($conn)
     {
@@ -38,18 +52,24 @@ class Article
 
     public function create($conn)
     {
-        $sql = "INSERT INTO article(title,content)
+        if ($this->validate()) {
+            $sql = "INSERT INTO article(title,content)
         VALUES ( :title,:content)";
 
-        $stmt = $conn->prepare($sql);
+            $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
-        $stmt->bindValue(':content', $this->content, PDO::PARAM_STR);
+            $stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
+            $stmt->bindValue(':content', $this->content, PDO::PARAM_STR);
 
-        if ($stmt->execute()) {
-            $this->id = $conn->lastInsertId();
-            return true;
+            if ($stmt->execute()) {
+                $this->id = $conn->lastInsertId();
+                return true;
+            }
+        } else {
+            return false;
         }
+
+
 
 
     }
