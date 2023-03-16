@@ -1,5 +1,5 @@
 <?php
-require('includes/init.php');
+// require('includes/init.php');
 require('includes/header.php');
 $conn = require('includes/database.php');
 ?>
@@ -11,19 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $password = $_POST['password'];
     if (Administration::Auth($conn, $username, $password)) {
 
-
         Authentication::login();
-        echo 'udało się';
+       
+        header('Location:index.php');
     } else {
-        echo 'coś jest nie tak';
+        echo 'wprowadzone dane są nieprawidłowe';
     }
 }
-
-
-
 ?>
-
-
 <div class="container">
     <h2>login</h2>
     <form method="post">

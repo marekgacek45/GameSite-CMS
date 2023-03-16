@@ -1,5 +1,5 @@
 <?php
-require('includes/init.php');
+// require('includes/init.php');
 require('includes/header.php');
 $conn = require('includes/database.php'); ?>
 
