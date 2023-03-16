@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
         Authentication::login();
        
-        header('Location:index.php');
+        header('Location:admin/index.php');
     } else {
         echo 'wprowadzone dane są nieprawidłowe';
     }

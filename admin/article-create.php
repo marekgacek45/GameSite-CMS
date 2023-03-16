@@ -1,6 +1,6 @@
 <?php
 // require('includes/init.php');
-require('includes/header.php');
+require('../includes/header.php');
 ?>
 
 <?php
@@ -29,4 +29,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </main>
 
 
-<?php require('includes/footer.php') ?>
+<?php require('../includes/footer.php') ?>

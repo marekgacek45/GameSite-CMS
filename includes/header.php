@@ -1,5 +1,5 @@
-<?php require('includes/init.php');
-; ?>
+<?php require(dirname(__DIR__) . '/includes/init.php');
+?>
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -20,22 +20,28 @@
         <nav class="navbar navbar-dark bg-primary">
                 <div class="container">
 
-                <div>
-                        <?php if (isset($_SESSION['username'])): ?>
-                                <p>Witaj,
-                                        <?= $_SESSION['username'] ?>
-                                </p>
-                        <?php endif ?>
+                        <div>
+                                <?php if (isset($_SESSION['is_logged_in'])): ?>
+                                        <a href="/gameSiteCMS/admin/index.php"><button>Panel Admina</button></a>
+                                        <a href="article-create.php"><button>stwórz nowy artykuł</button></a>
+                                <?php endif ?>
 
-                        <?php if ( isset($_SESSION['is_logged_in'])): ?>
-                                <a href="logout.php"><button>wyloguj się</button></a>
-                        <?php else: ?>
-                                <a href="login.php"><button>zaloguj się</button></a>
-                        <?php endif ?>
+                                <?php if (isset($_SESSION['username'])): ?>
+                                        <p>Witaj,
+                                                <?= $_SESSION['username'] ?>
+                                        </p>
+                                <?php endif ?>
+
+                                <?php if (isset($_SESSION['is_logged_in'])): ?>
+                                        <a href="logout.php"><button>wyloguj się</button></a>
+                                        
+                                <?php else: ?>
+                                        <a href="login.php"><button>zaloguj się</button></a>
+                                <?php endif ?>
                         </div>
-                        <a href="article-create.php"><button>stwórz nowy artykuł</button></a>
+
                 </div>
         </nav>
-        <a href="index.php">
+        <a href="/gameSiteCMS/index.php">
                 <h1>GameSITE CMS</h1>
         </a>
