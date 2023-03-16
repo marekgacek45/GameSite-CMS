@@ -1,5 +1,5 @@
 <?php
-require('includes/init.php');
+// require('includes/init.php');
 require('includes/header.php');
 ?>
 
