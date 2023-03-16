@@ -36,25 +36,7 @@ $articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
 
 </main>
 
-<div class="container">
-    <?php if ($paginator->previous): ?>
-        <a href="?page=<?= $paginator->previous ?>"><button>poprzednia</button></a>
-    <?php else: ?>
-        <button disabled>poprzednia</button>
-    <?php endif ?>
-    <?php if ($paginator->next): ?>
-        <a href="?page=<?= $paginator->next ?>"><button>następna</button></a>
-    <?php else: ?>
-        <button disabled>następna</button>
-    <?php endif ?>
-
-    <?php for ($i = 1; $i <= $paginator->totalPages; $i++): ?>
-
-        <a href="?page=<?= $i ?>"><button><?= $i ?></button></a>
-    <?php endfor ?>
-
-
-</div>
+<?php require('includes/pagination.php') ?>
 
 
 <?php require('includes/footer.php') ?>
