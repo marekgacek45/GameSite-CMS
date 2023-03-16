@@ -1,7 +1,7 @@
 <?php
 // require('includes/init.php');
-require('includes/header.php');
-$conn = require('includes/database.php'); ?>
+require('../includes/header.php');
+$conn = require('../includes/database.php'); ?>
 
 <?php
 $id = $_GET['id'];
@@ -24,4 +24,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </main>
 
-<?php require('includes/footer.php') ?>
+<?php require('../includes/footer.php') ?>

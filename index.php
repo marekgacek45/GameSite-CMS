@@ -10,6 +10,8 @@ $articles = Article::getAll($conn);
 
 ?>
 
+
+
 <main class="container">
 
 
@@ -18,12 +20,11 @@ $articles = Article::getAll($conn);
     <?php foreach ($articles as $article): ?>
         <div class="container">
             <h2>
-                <?= htmlspecialchars($article['title']) ?>
+            <a href="article.php?id=<?= $article['id'] ?>"><?= htmlspecialchars($article['title']) ?></a>
             </h2>
             <p>
                 <?= htmlspecialchars($article['content']) ?>
             </p>
-            <a href="article.php?id=<?= $article['id'] ?>">czytaj</a>
         </div>
     <?php endforeach ?>
 
