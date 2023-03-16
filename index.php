@@ -5,7 +5,13 @@ $conn = require('includes/database.php');
 ?>
 
 <?php
-$articles = Article::getAll($conn);
+// $articles = Article::getAll($conn);
+
+$totalArticle = Article::getTotal($conn);
+$paginator = new Paginator($_GET['page'] ?? 1, 3, $totalArticle);
+
+$articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
+
 
 
 ?>
@@ -20,7 +26,7 @@ $articles = Article::getAll($conn);
     <?php foreach ($articles as $article): ?>
         <div class="container">
             <h2>
-            <a href="article.php?id=<?= $article['id'] ?>"><?= htmlspecialchars($article['title']) ?></a>
+                <a href="article.php?id=<?= $article['id'] ?>"><?= htmlspecialchars($article['title']) ?></a>
             </h2>
             <p>
                 <?= htmlspecialchars($article['content']) ?>
@@ -29,5 +35,8 @@ $articles = Article::getAll($conn);
     <?php endforeach ?>
 
 </main>
+
+<?php require('includes/pagination.php') ?>
+
 
 <?php require('includes/footer.php') ?>

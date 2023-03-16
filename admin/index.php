@@ -7,7 +7,10 @@ $conn = require('../includes/database.php');
 
 
 <?php
-$articles = Article::getAll($conn);
+$totalArticle = Article::getTotal($conn);
+$paginator = new Paginator($_GET['page'] ?? 1, 10, $totalArticle);
+
+$articles = Article::getPage($conn, $paginator->limit, $paginator->offset);
 
 ?>
 
@@ -42,9 +45,9 @@ $articles = Article::getAll($conn);
 
         </tbody>
     </table>
-
-
-
 </main>
+
+<?php require('../includes/pagination.php') ?>
+
 
 <?php require('../includes/footer.php') ?>
