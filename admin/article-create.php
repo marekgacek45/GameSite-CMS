@@ -9,7 +9,7 @@ $article = new Article();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $conn = require('includes/database.php');
+    $conn = require('../includes/database.php');
 
     $article->title = $_POST['title'];
     $article->content = $_POST['content'];
