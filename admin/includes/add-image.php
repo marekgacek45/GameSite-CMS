@@ -61,10 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($article->setImage($conn, $filename)) {
 
-                if($previousImage){
+                if ($previousImage) {
                     unlink("../../uploads/$previousImage");
                 }
-                
+
 
                 header("LOCATION: http://localhost/gameSiteCMS/article.php?id=$id");
             }
@@ -96,3 +96,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <button type="submit">Dodaj</button>
 </form>
+<a href="delete-image.php?id=<?= $id ?>"><button>usuń</button></a>
