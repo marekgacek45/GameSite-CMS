@@ -2,8 +2,8 @@
     <div>
         <p>&copy; <span></span> GameSiteCMS</p>
         <div>
-            <p>created by <a href="https://github.com/gacmen45"> <img
-            src="<?php echo str_replace(realpath($_SERVER['DOCUMENT_ROOT']), '', realpath(__DIR__ . '/../assets/gacmen.png')) ?>"
+            <p>created by <a href="https://github.com/marekgacek45"> <img
+                        src="<?= str_replace(realpath($_SERVER['DOCUMENT_ROOT']), '', realpath(__DIR__ . '/../assets/gacmen.png')) ?>"
                         alt="Marek Gacek logo">Marek 'gacmen45' Gacek</a>
         </div>
     </div>

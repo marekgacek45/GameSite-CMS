@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <main class="container">
 
-<h2>Edytuj artykuł</h2>
-<?php require("includes/form.php") ?>
+    <h2>Edytuj artykuł</h2>
+    <?php require("includes/form.php") ?>
 
 </main>
 
