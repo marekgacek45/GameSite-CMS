@@ -17,7 +17,7 @@
     <textarea name="content" id="content" cols="30" rows="10"  placeholder="wprowadź treść"><?= htmlspecialchars($article->content) ?></textarea>
 </div>
 
-<?php require("includes/add-image.php") ?>
+
 
 <button type="submit">Stwórz</button>
 </form>

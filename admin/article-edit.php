@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h2>Edytuj artykuł</h2>
     <?php require("includes/form.php") ?>
 
+    <a href="includes/add-image.php?id=<?= $id?>"><button>edytuj zdjęcie</button></a>
 </main>
 
 <?php require('../includes/footer.php') ?>
