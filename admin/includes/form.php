@@ -16,5 +16,8 @@
     <label for="content">Treść:</label>
     <textarea name="content" id="content" cols="30" rows="10"  placeholder="wprowadź treść"><?= htmlspecialchars($article->content) ?></textarea>
 </div>
+
+
+
 <button type="submit">Stwórz</button>
 </form>

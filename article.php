@@ -12,11 +12,12 @@ $article = Article::getByID($conn, $id);
 
 
 
-    <h2>
-        <?= $article->title ?>
+<h2>
+        <?= htmlspecialchars($article->title)  ?>
     </h2>
+    <img src="uploads/<?= htmlspecialchars($article->thumbnail)?>" alt="">
     <p>
-        <?= $article->content ?>
+        <?= htmlspecialchars($article->content) ?>
     </p>
 
    

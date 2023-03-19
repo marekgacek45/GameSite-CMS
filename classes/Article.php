@@ -123,6 +123,18 @@ public static function getTotal($conn){
     return $conn->query('SELECT COUNT(*) FROM article')->fetchColumn();
 }
 
+public function setImage($conn,$filename){
+    $sql='UPDATE article SET thumbnail = :image_file WHERE id=:id';
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $stmt->bindValue(':image_file', $filename, $filename ==null ? PDO::PARAM_NULL : PDO::PARAM_STR);
+
+    return $stmt->execute();
+    
+}
+
 }
 
 ?>
