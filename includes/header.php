@@ -30,7 +30,7 @@
                                         <a class="nav-link" href="#">Gry</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="#">Artykuły</a>
+                                        <a class="nav-link" href="/gameSiteCMS/index.php">Artykuły</a>
                                 </li>
                                 <li class="nav-item">
                                         <a class="nav-link" href="#">Multimedia</a>
@@ -69,3 +69,5 @@
                 </div>
 
         </nav>
+
+
