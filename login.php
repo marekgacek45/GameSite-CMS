@@ -5,11 +5,11 @@ $conn = require('includes/database.php');
 
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['username']) && isset($_POST['password']) ){
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $error = '';
+    
 
     if (Administration::Auth($conn, $username, $password)) {
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
        
         header('Location:admin/index.php');
     } else {
-      $error = 'wprowadzone dane są nieprawidłowe';
+      echo 'wprowadzone dane są nieprawidłowe';
     }
 }
 ?>
@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
       </div>
       <div class="modal-body">
       <div class="container">
-    <form method="post" id="login">
+
+    <form action='index.php' method="post" id="login">
   <div class="mb-3">
     <label for="eusername" class="form-label">Nazwa użytkownika:</label>
     <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">

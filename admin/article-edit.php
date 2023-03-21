@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $article->content = $_POST['content'];
 
     if ($article->edit($conn)) {
-        header('Location:index.php');
+        header('Location:admin/index.php');
     }
 }
 ?>

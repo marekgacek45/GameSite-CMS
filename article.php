@@ -8,19 +8,15 @@ $id = $_GET['id'];
 $article = Article::getByID($conn, $id);
 ?>
 
-<main class="container">
+<div class="container d-flex flex-column justify-content-center align-items-center" style="margin-top:2em">
+<h2> <?= htmlspecialchars($article->title) ?> </h2>
 
-
-
-<h2>
-        <?= htmlspecialchars($article->title)  ?>
-    </h2>
-    <img src="uploads/<?= htmlspecialchars($article->thumbnail)?>" alt="">
+    <img src="uploads/<?= htmlspecialchars($article->thumbnail) ?>" alt="" style="padding:2em">
     <p>
         <?= htmlspecialchars($article->content) ?>
     </p>
 
-   
-</main>
+
+</div>
 
 <?php require('includes/footer.php') ?>
