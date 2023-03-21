@@ -16,7 +16,7 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light d-flex flex-row ">
                 <a class="navbar-brand" href="index.php">GameSiteCMS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -24,7 +24,8 @@
                         <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse d-flex flex-row justify-content-around"
+                        id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
                                         <a class="nav-link" href="#">Gry</a>
@@ -42,8 +43,10 @@
                                                         type="button">Logout</button></a>
 
                                 <?php else: ?>
-                                        <a href="login.php"><button class="btn btn-sm btn-outline-secondary"
-                                                        type="button">Login</button></a>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#exampleModal">
+                                                Login
+                                        </button>
                                 <?php endif ?>
 
 
@@ -65,9 +68,10 @@
                                         <?php endif ?>
                                 <?php endif ?>
                         </div>
-                        
+
                 </div>
 
         </nav>
 
 
+        <?php require(dirname(__DIR__) . '/login.php') ?>
