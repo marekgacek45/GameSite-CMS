@@ -1,8 +1,8 @@
 <footer>
-    <div>
+    <div class='container d-flex flex-column justify-content-center align-items-center'>
         <p>&copy; <span></span> GameSiteCMS</p>
-        <div>
-            <p>created by <a href="https://github.com/marekgacek45"> <img
+        <div class="d-flex justify-content-center align-items-center">
+            <p>created by <a href="https://github.com/marekgacek45"> <img style="max-height:60px; margin:0 1em" class="fluid"
                         src="<?= str_replace(realpath($_SERVER['DOCUMENT_ROOT']), '', realpath(__DIR__ . '/../assets/gacmen.png')) ?>"
                         alt="Marek Gacek logo">Marek 'gacmen45' Gacek</a>
         </div>
