@@ -12,6 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $article->title = $_POST['title'];
     $article->content = $_POST['content'];
 
+
+    if(isset($_POST['thumbnail'])){
+        $article->thumbnail = $_POST['thumbnail'];
+    }
+
+
+
+    
+
     if ($article->edit($conn)) {
         header('Location:admin/index.php');
     }
@@ -20,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <main class="container">
 
     <h2>Edytuj artykuł</h2>
+    
     <?php require("includes/form.php") ?>
 
     <a href="includes/add-image.php?id=<?= $id?>"><button>edytuj zdjęcie</button></a>

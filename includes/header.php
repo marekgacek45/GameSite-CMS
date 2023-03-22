@@ -42,8 +42,9 @@
                                                 <a href="/gameSiteCMS/admin/index.php"><button
                                                                 class="btn btn-sm btn-outline-secondary" type="button">Admin
                                                                 Panel</button></a>
-                                                <a href="article-create.php"><button class="btn btn-sm btn-outline-secondary"
-                                                                type="button">Nowy Artykuł</button></a>
+                                                <a href="/gameSiteCMS/admin/article-create.php"><button
+                                                                class="btn btn-sm btn-outline-secondary" type="button">Nowy
+                                                                Artykuł</button></a>
                                         <?php endif ?>
 
                                         <?php if (isset($_SESSION['is_logged_in'])): ?>
