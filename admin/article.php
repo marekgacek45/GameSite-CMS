@@ -13,7 +13,7 @@ $article = Article::getByID($conn, $id);
 <div class="container d-flex flex-column justify-content-center align-items-center" style="margin-top:2em">
 <h2> <?= htmlspecialchars($article->title) ?> </h2>
 
-    <img src="../uploads/<?= htmlspecialchars($article->thumbnail) ?>" alt="" style="padding:2em">
+    <img class="img-fluid" src="../uploads/<?= htmlspecialchars($article->thumbnail) ?>" alt="" style="padding:2em; max-width:750px">
     <p>
         <?= htmlspecialchars($article->content) ?>
     </p>
