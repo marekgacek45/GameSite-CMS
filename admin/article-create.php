@@ -21,11 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 ?>
-<main class="container">
+<main class="container d-flex flex-column justify-content-center align-items-center" style="margin-bottom:2em">
     <h2>stwórz nowy artykuł</h2>
 
     <?php require('includes/form.php') ?>
+    <div class="container d-flex  justify-content-center align-items-center">
 
+        <button form="article" type="submit" class="btn btn-primary" style="margin-right:1em">Zapisz</button>
+
+    </div>
 </main>
 
 
