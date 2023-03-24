@@ -28,7 +28,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                                <a class="nav-link" href="#">Gry</a>
+                                                <a class="nav-link" href="/gameSiteCMS/pages/games.php">Gry</a>
                                         </li>
                                         <li class="nav-item">
                                                 <a class="nav-link" href="/gameSiteCMS/index.php">Artykuły</a>
