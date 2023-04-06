@@ -11,6 +11,14 @@ class User
     public $password;
     public $errors = [];
 
+    public function checkUsername($conn){
+        $sql = "SELECT email FROM users WHERE username=:username";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':username', $this->username, PDO::PARAM_STR);
+        if($stmt->execute()){
+            return $stmt->fetch();
+        }
+    }
 
     public function checkEmail($conn){
         $sql = "SELECT email FROM users WHERE email=:email";
@@ -19,9 +27,8 @@ class User
         if($stmt->execute()){
             return $stmt->fetch();
         }
-        
     }
-
+   
     public function register($conn)
     {
         $sql = "INSERT INTO users(first_name,last_name,username,email,password)
