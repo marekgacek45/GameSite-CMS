@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-
+var_dump($_POST)
 ?>
 <main class="container d-flex flex-column justify-content-center align-items-center" style="margin-bottom:2em">
     <h2>stwórz nowy artykuł</h2>

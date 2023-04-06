@@ -60,6 +60,13 @@
                                         <?php endif ?>
 
 
+                                        <a href="registration.php"><button type="button" class="btn btn-primary">
+                                                Rejestracja
+                                        </button></a>
+                                        
+
+
+
                                 </div>
 
 
