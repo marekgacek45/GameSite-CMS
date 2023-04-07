@@ -2,6 +2,17 @@
 
 class Authentication
 {
+    public static function loginAdmin()
+    {
+        session_regenerate_id(true);
+
+        // $_SESSION['is_logged_in'] = true;
+        $_SESSION['admin_is_logged_in'] = true;
+
+        $_SESSION['username'] = $_POST['username'];
+    }
+
+
     public static function login()
     {
         session_regenerate_id(true);
@@ -10,6 +21,7 @@ class Authentication
 
         $_SESSION['username'] = $_POST['username'];
     }
+
 
     public static function logout()
     {
@@ -30,11 +42,12 @@ class Authentication
     public static function isLoggedIn()
     {
 
-        return (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']);
+        return (isset($_SESSION['admin_is_logged_in']) && $_SESSION['admin_is_logged_in']);
 
     }
 
-    public static function requireLogin(){
+    // public static function requireLogin(){
+    public static function requireLoginAdmin(){
         if(!static::isLoggedIn){
             die('Nie posiadasz uprawnień');
         }

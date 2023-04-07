@@ -20,7 +20,7 @@ class User
         }
     }
 
-    public function checkEmail($conn){
+    public  function checkEmail($conn){
         $sql = "SELECT email FROM users WHERE email=:email";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
@@ -29,7 +29,7 @@ class User
         }
     }
    
-    public function register($conn)
+    public  function register($conn)
     {
         $sql = "INSERT INTO users(first_name,last_name,username,email,password)
         VALUES ( :first_name,:last_name,:username,:email,:password)";
@@ -44,7 +44,27 @@ class User
         $stmt->execute();
     }
 
+    public static function UserAuth($conn, $username, $password)
+    {
+        $sql = "SELECT * FROM users WHERE username=:username";
 
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':username', $username, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Administration');
+
+        $stmt->execute();
+
+        $user = $stmt->fetch();
+
+        if ($user) {
+            if ($password == $user->password) {
+                return true;
+            }
+        }
+
+    }
 }
 
 ?>

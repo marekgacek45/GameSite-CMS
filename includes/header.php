@@ -37,8 +37,13 @@
                                                 <a class="nav-link" href="#">Multimedia</a>
                                         </li>
                                 </ul>
-                                <div>
-                                        <?php if (isset($_SESSION['is_logged_in'])): ?>
+                                
+
+                                <div class="d-flex" >
+                                <?php if (isset($_SESSION['logged'])): ?>
+                                        <p style = "margin-right:2em;padding">Witaj <?= $_SESSION['logged'] ?></p>
+                                <?php endif ?>
+                                        <?php if (isset($_SESSION['admin_is_logged_in'])): ?>
                                                 <a href="/gameSiteCMS/admin/index.php"><button
                                                                 class="btn btn-sm btn-outline-secondary" type="button">Admin
                                                                 Panel</button></a>
@@ -47,7 +52,7 @@
                                                                 Artykuł</button></a>
                                         <?php endif ?>
 
-                                        <?php if (isset($_SESSION['is_logged_in'])): ?>
+                                        <?php if (isset($_SESSION['is_logged_in']) || isset($_SESSION['admin_is_logged_in'])): ?>
                                                 <a href="/gameSiteCMS/logout.php"><button
                                                                 class="btn btn-sm btn-outline-secondary"
                                                                 type="button">Logout</button></a>
@@ -61,9 +66,9 @@
 
 
                                         <a href="registration.php"><button type="button" class="btn btn-primary">
-                                                Rejestracja
-                                        </button></a>
-                                        
+                                                        Rejestracja
+                                                </button></a>
+
 
 
 
