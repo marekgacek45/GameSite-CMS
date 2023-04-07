@@ -41,7 +41,9 @@
 
                                 <div class="d-flex" >
                                 <?php if (isset($_SESSION['logged'])): ?>
-                                        <p style = "margin-right:2em;padding">Witaj <?= $_SESSION['logged'] ?></p>
+                                        <p style = "margin-right:2em;padding">Witaj <?= $_SESSION['user']->username ?></p>
+                                        <a href="/gameSiteCMS/pages/profile.php"><button
+                                                                class="btn btn-sm btn-outline-secondary" type="button">Profil</button></a>
                                 <?php endif ?>
                                         <?php if (isset($_SESSION['admin_is_logged_in'])): ?>
                                                 <a href="/gameSiteCMS/admin/index.php"><button
@@ -52,7 +54,7 @@
                                                                 Artykuł</button></a>
                                         <?php endif ?>
 
-                                        <?php if (isset($_SESSION['is_logged_in']) || isset($_SESSION['admin_is_logged_in'])): ?>
+                                        <?php if (isset($_SESSION['logged']) || isset($_SESSION['admin_is_logged_in'])): ?>
                                                 <a href="/gameSiteCMS/logout.php"><button
                                                                 class="btn btn-sm btn-outline-secondary"
                                                                 type="button">Logout</button></a>
@@ -64,10 +66,12 @@
                                                 </button>
                                         <?php endif ?>
 
-
-                                        <a href="registration.php"><button type="button" class="btn btn-primary">
+<?php if(!isset($_SESSION['logged'])) : ?>
+        <a href="registration.php"><button type="button" class="btn btn-primary">
                                                         Rejestracja
                                                 </button></a>
+<?php endif  ?>
+                                        
 
 
 

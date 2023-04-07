@@ -17,7 +17,7 @@ class Authentication
     {
         session_regenerate_id(true);
 
-        $_SESSION['is_logged_in'] = true;
+        $_SESSION['logged'] = true;
 
         $_SESSION['username'] = $_POST['username'];
     }

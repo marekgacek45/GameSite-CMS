@@ -4,12 +4,31 @@ class User
 {
 
     public $id;
+    public $admin;
     public $first_name;
     public $last_name;
     public $username;
     public $email;
     public $password;
     public $errors = [];
+
+
+    public static function getUser($conn, $username, $columns = "*")
+    {
+
+        $sql = "SELECT $columns FROM users WHERE username = :username ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+
+    }
 
     public function checkUsername($conn){
         $sql = "SELECT email FROM users WHERE username=:username";
@@ -50,9 +69,9 @@ class User
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':username', $username, PDO::PARAM_INT);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Administration');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
 
         $stmt->execute();
 
@@ -60,7 +79,9 @@ class User
 
         if ($user) {
             if ($password == $user->password) {
-                return true;
+                // return true;
+                return $user;
+                
             }
         }
 

@@ -10,18 +10,24 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['username']) && isset($
   $username = $_POST['username'];
   $_SESSION['logged'] = $username;
   $password = $_POST['password'];
+  $user = User::UserAuth($conn, $username, $password);
+  $_SESSION['user'] = $user;
 
+  // if (Administration::Auth($conn, $username, $password)) {
 
-  if (Administration::Auth($conn, $username, $password)) {
+  //   Authentication::loginAdmin();
+  //   header('Location:admin/index.php');
 
-    Authentication::loginAdmin();
-    header('Location:admin/index.php');
+  // }
+  if (User::UserAuth($conn, $username, $password)) {
+    if ($user->admin === 1) {
+      Authentication::loginAdmin();
+      header('Location:admin/index.php');
+    } else {
+      Authentication::login();
+      header('Location:pages/profile.php');
 
-  } elseif (User::UserAuth($conn, $username, $password)) {
-    Authentication::login();
-    header('Location:index.php');
-
-
+    }
   } else {
     echo 'wprowadzone dane są nieprawidłowe';
   }
